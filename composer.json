@@ -1,0 +1,16 @@
+{
+    "name": "paul/main-page-search",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Paul",
+            "email": "hvostovp@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
