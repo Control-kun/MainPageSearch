@@ -49,10 +49,21 @@ class Route
     public function run()
     {
         if($this->match()){
-            $controller = 'app\Controllers\\' . ucfirst($this->params['controller'] . '.php');
-            if (!class_exists(ucfirst($this->params['controller'] . '.php'))){
-                echo 'Class not found.';
+            $controllerPath= 'App\Controllers\\' . ucfirst($this->params['controller']);
+
+            if (class_exists($controllerPath)){
+                $action = $this->params['action'];
+                if(method_exists($controllerPath, $action)){
+                    $controller = new $controllerPath($this->params);
+                    $controller->$action();
+                } else {
+                    echo 'Acrion not found';
+                }
+            } else {
+                echo 'Controller not found';
             }
+        } else {
+            echo 'Route not found';
         }
     }
 

@@ -3,10 +3,12 @@
 namespace App\Controllers;
 
 
-class Search
+use App\Core\Controller;
+
+class Search extends Controller
 {
-    public function __construct()
+    public function index()
     {
-        echo 'SearchController';
+        $this->view->render('sobaka', []);
     }
 }
