@@ -2,13 +2,17 @@
 
 namespace App\Controllers;
 
-
 use App\Core\Controller;
 
 class Search extends Controller
 {
+
     public function index()
     {
-        $this->view->render('sobaka', []);
+        $result = $this->model->getSearchResult();
+
+        $data['items'] = $result;
+
+        $this->view->render('sobaka', $data);
     }
 }

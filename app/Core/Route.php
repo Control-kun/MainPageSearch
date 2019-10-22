@@ -7,6 +7,9 @@ class Route
     protected $routes = [];
     protected $params = [];
 
+    /**
+     * Route constructor.
+     */
     public function __construct()
     {
         $routesArr = [
@@ -25,6 +28,10 @@ class Route
         }
     }
 
+    /**
+     * @param $route
+     * @param $params
+     */
     public function add($route, $params)
     {
         $route = '#^' . $route . '$#';
@@ -32,6 +39,9 @@ class Route
 
     }
 
+    /**
+     * @return bool
+     */
     public function match()
     {
         $url = trim($_SERVER['REQUEST_URI'], '/');
@@ -51,7 +61,7 @@ class Route
         if($this->match()){
             $controllerPath= 'App\Controllers\\' . ucfirst($this->params['controller']);
 
-            if (class_exists($controllerPath)){
+            if (class_exists($controllerPath)) {
                 $action = $this->params['action'];
                 if(method_exists($controllerPath, $action)){
                     $controller = new $controllerPath($this->params);
