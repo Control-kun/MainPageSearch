@@ -29,7 +29,7 @@ class View
      * @param $title
      * @param $vars
      */
-    public function render($title, $vars)
+    public function render($title, $vars = [])
     {
         extract($vars);
         $path = $_SERVER['DOCUMENT_ROOT'] .'/app/views/' . $this->path . '.php';
