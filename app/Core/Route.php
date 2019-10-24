@@ -59,7 +59,7 @@ class Route
     public function run()
     {
         if($this->match()){
-            $controllerPath= 'App\Controllers\\' . ucfirst($this->params['controller']);
+            $controllerPath= 'App\Controllers\\' . ucfirst($this->params['controller']) . 'Controller';
 
             if (class_exists($controllerPath)) {
                 $action = $this->params['action'];
