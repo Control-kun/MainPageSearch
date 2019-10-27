@@ -19,7 +19,7 @@ class Db
 
     /**
      * @param $sql
-     * @return PDOStatement
+     * @return bool|PDOStatement
      */
     public function query($sql): PDOStatement
     {

@@ -32,12 +32,12 @@ class View
     public function render($title, $vars = [])
     {
         extract($vars);
-        $path = $_SERVER['DOCUMENT_ROOT'] .'/app/views/' . $this->path . '.php';
+        $path = $_SERVER['DOCUMENT_ROOT'] . '/app/views/' . $this->path . '.php';
         if (file_exists($path)) {
             ob_start();
             require $path;
             $content = ob_get_clean();
-            require $_SERVER['DOCUMENT_ROOT'] .'/app/views/layouts/' . $this->layout . '.php';
+            require $_SERVER['DOCUMENT_ROOT'] . '/app/views/layouts/' . $this->layout . '.php';
         }
     }
 
